@@ -44,9 +44,7 @@ new Vue({
         })
         .then(function(response) {
           console.log(response.data);
-        })
-        .then(function(data) {
-          localStorage.setItem('token', data.token)
+          localStorage.setItem('token', response.data.token)
         })
         .catch(function(error) {
           console.log(error);

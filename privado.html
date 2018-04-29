@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+  <title>Black</title>
+</head>
+
+<body >
+  <div id="app" class="lista-usuarios">
+      <h3>Lista Privada</h3>
+      <pre>
+        {{ $data | json }}
+      </pre>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+  <script type="text/javascript" charset="utf-8">
+
+  var urlPrivada = 'http://localhost:3000/api/private';
+
+
+  new Vue({
+    el: '#app',
+    created: function() {
+      this.getPrivado();
+    },
+    data: {
+      lists: []
+    },
+    methods: {
+      getPrivado: function() {
+
+        axios.get(urlPrivada, { headers: { authorization: "Bearer " + localStorage.token } } )
+          .then(response => {
+            this.lists = response.data
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      }
+    }
+  })
+  </script>
+
+</body>
+
+</html>

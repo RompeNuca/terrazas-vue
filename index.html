@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+  <title>Black</title>
+</head>
+
+<body >
+  <div id="app" class="lista-usuarios">
+      <h3>Lista de Usuarios</h3>
+      <pre>
+        {{ $data | json }}
+      </pre>
+
+  <div class="log-container">
+    <div class="log">
+      <div class="log-header">
+        <div class="log-item">
+          <img src="img/mauro.svg" alt="Mauro esta probando Vue.">
+        </div>
+      </div>
+      <div id="input-container">
+        <div id="mail" class="group">
+          <input id="txtEmail" type="email" >
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Mail</label>
+          </input>
+        </div>
+
+        <div id="pass" class="group">
+          <input id="txtPassword" type="password">
+          <span class="highlight"></span>
+          <span class="bar"></span>
+          <label>Clave</label>
+        </input>
+        </div>
+      </div>
+      <div class="btn-container">
+      <button id="btnLogin" class="btn btn-action"  v-on:click="signInUser()">
+        Entrar
+      </button>
+      <button id="btnSignUp" class="btn btn-secundary none">
+        Crear Cuenta
+      </button>
+      <button id="btnLogout" class="btn btn-action none">
+        Salir
+      </button>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+
+  <script type="text/javascript" src="js/main.js" charset="utf-8"></script>
+
+</body>
+
+</html>

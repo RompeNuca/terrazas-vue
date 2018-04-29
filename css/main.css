@@ -1,0 +1,396 @@
+@charset "UTF-8";
+/**
+  EDgrid es una librería CSS para construir layouts con Responsive Web Design
+  Importe este archivo en su proyecto para empezar a usarlo
+**/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.item {
+  margin: 0;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+}
+
+.item {
+  width: 100%;
+}
+
+.item.container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+/*
+| Mixin para crear cuadriculas
+|
+| $gridItemSelector: nombre del selector CSS de cada item de la cuadricula
+| $listColumns:
+|              * lista de numeros de columnas en cada breakpoint (separados por espacios). Ej: 1 2 3 4
+|              * el numero de columnas del ultimo breakpoint se hereda a breakpoints superiores
+| $gutter: separación entre cada item de la cuadricula (opcional)
+|
+*/
+.none {
+  display: none;
+}
+
+.hide {
+  display: none;
+  opacity: 0;
+}
+
+.log-container {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: #1A1D22;
+  transition: 0.2s ease all;
+}
+
+.log-container-in {
+  position: relative;
+  height: 6em;
+  justify-content: flex-start;
+  align-items: center;
+  transition: 0.2s ease all;
+}
+
+.log {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem;
+  max-width: 100%;
+  width: 340px;
+  background-color: #FFF;
+  border-radius: 0.6rem;
+  transition: 0.2s ease all;
+}
+
+.log-in {
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 0 0 1rem;
+  width: auto;
+  padding: 0.4rem;
+  transition: 0.2s ease all;
+}
+
+.log-header {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 0px;
+  margin-right: 0px;
+  align-items: center;
+  justify-items: center;
+}
+
+.log-header img {
+  display: block;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.log-header > .log-item {
+  width: calc(100% - 0px);
+  margin: 0px;
+}
+
+@supports (grid-template-areas: "header") {
+  .log-header {
+    display: grid;
+    grid-gap: 0px;
+    margin-left: 0;
+    margin-right: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  body {
+    overflow-x: visible;
+  }
+  .log-header > .log-item {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.log-item {
+  padding-bottom: 2em;
+}
+
+.log-item img {
+  width: 100%;
+  max-width: 10em;
+}
+
+.log-item-in {
+  padding-bottom: 0;
+}
+
+.log-item-in img {
+  width: 3rem;
+}
+
+.nombre {
+  width: auto;
+  padding: 0 0.8em;
+}
+
+.btn-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  align-items: center;
+}
+
+.btn-container img {
+  display: block;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.btn-container > .log-item {
+  width: calc(50% - 1em);
+  margin: 0.5em;
+}
+
+@supports (grid-template-areas: "header") {
+  .btn-container {
+    display: grid;
+    grid-gap: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  body {
+    overflow-x: visible;
+  }
+  .btn-container > .log-item {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.btn-container-in {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  align-items: center;
+}
+
+.btn-container-in img {
+  display: block;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+.btn-container-in > .log-item {
+  width: calc(100% - 1em);
+  margin: 0.5em;
+}
+
+@supports (grid-template-areas: "header") {
+  .btn-container-in {
+    display: grid;
+    grid-gap: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  body {
+    overflow-x: visible;
+  }
+  .btn-container-in > .log-item {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  height: 3rem;
+  padding: 0 2em;
+  font-size: 0.8rem;
+  border-radius: 0.4em;
+  border: none;
+  font-weight: 400;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  color: #5264AE;
+  border: 2px solid #5264AE;
+  background-color: transparent;
+  transition: 0.2s ease all;
+}
+
+.btn-secundary:hover {
+  color: #FFF;
+  background-color: #5264AE;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.2s ease all;
+}
+
+.btn-action {
+  color: #FFF;
+  background-color: #5264AE;
+}
+
+.btn-action:hover {
+  color: #5264AE;
+  background-color: #FFF;
+  border: 2px solid #FFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  transition: 0.2s ease all;
+}
+
+.group {
+  position: relative;
+  margin-bottom: 2em;
+  width: 100%;
+}
+
+.group-in {
+  width: auto;
+  margin-bottom: 0;
+}
+
+input {
+  font-family: "Roboto", sans-serif;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 10px 10px 10px 55px;
+  display: block;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #DFDFDF;
+}
+
+input:focus {
+  outline: none;
+  padding: 10px 10px 10px 10px;
+}
+
+/* LABEL  */
+label {
+  color: #9F9F9F;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label {
+  top: -1em;
+  font-size: 14px;
+  color: #5264AE;
+}
+
+/* BOTTOM BARS  */
+.bar {
+  position: relative;
+  display: block;
+  min-width: 200px;
+}
+
+.bar:after,
+.bar:before {
+  content: '';
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #5264AE;
+  transition: 0.2s ease all;
+}
+
+.bar:before {
+  left: 50%;
+}
+
+.bar:after {
+  right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:after,
+input:focus ~ .bar:before {
+  width: 50%;
+}
+
+/* HIGHLIGHTER = */
+.highlight {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS */
+@keyframes inputHighlighter {
+  from {
+    background: #5264AE;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
